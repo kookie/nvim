@@ -1,0 +1,15 @@
+snippet psf "PowerShell function"
+function $1 {
+	[CmdletBinding()]
+	Param (
+		[Parameter(Mandatory, ValueFromPipeline)]
+		[string[]]
+		$ComputerName
+	)
+
+	Begin {}
+	Process {}
+	End {}
+}
+
+endsnippet
