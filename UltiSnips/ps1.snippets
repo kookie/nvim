@@ -1,0 +1,131 @@
+snippet paf "PowerShell function"
+function Verb-Noun {
+	[CmdletBinding()]
+	Param (
+		[Parameter(Mandatory, ValueFromPipeline)]
+		[string[]]
+		$ComputerName
+	)
+
+	Begin {}
+	Process {}
+	End {}
+}
+
+endsnippet
+
+snippet spaf "PowerShell function with should support process"
+function Verb-Noun {
+	[CmdletBinding(SupportsShouldProcess, ConfirmImpact='High')]
+	Param (
+		[Parameter(Mandatory, ValueFromPipeline)]
+		[string[]]
+		$ComputerName
+	)
+
+	Begin {}
+	Process {
+		if ($PSCmdlet.ShouldProcess('This', $ComputerName)) {
+
+		}
+	}
+	End {}
+}
+
+endsnippet
+
+snippet pacred "Credential Paramter"
+[Parameter()]
+[System.Management.Automation.PSCredential]
+[System.Management.Automation.CredentialAttribute()]
+$Credential
+
+endsnippet
+
+snippet pscu "PowerShell Custom Object"
+[PSCustomObject]@{
+	Property = 'Value'
+}
+
+endsnippet
+
+
+snippet apscu "PowerShell Custom Object Array"
+[System.Collection.ArrayList]$Results = @()
+
+foreach ($Item in $Items) {
+	$Result = [PSCustomObject]@{
+		Property = 'Value'
+		Property = 'Value'
+	}
+
+	[void]$Results.Add($Result)
+}
+
+Return $Results
+
+endsnippet
+
+snippet fcb "Function Comment Block"
+<#
+.SYNOPSIS
+.DESCRIPTION
+.PARAMETER ComputerName
+.EXAMPLE
+.NOTES
+	Author : Quoc Doan
+	Email  : Quoc.Doan@ComputerShare.com.au
+	Date   : 1 Jan 2020
+
+	Version History:
+	1.0.0 (1 Jan 2020)
+		Initial Release
+#>
+endsnippet
+
+snippet tc "Try/catch block"
+try {
+
+} catch {
+	$PSItem.Exception.Message
+}
+endsnippet
+
+snippet ife "if/else"
+if {
+
+} else {
+
+}
+endsnippet
+
+snippet vnne "Validate Not Null Or Empty"
+[ValidateNotNullOrEmpty()]
+endsnippet
+
+snippet vset "Validate Set"
+[ValidateSet('value1', 'value2')]
+endsnippet
+
+snippet vrange "Validate Range"
+[ValidateRange(0,25000)]
+endsnippet
+
+snippet vpattern "Validate Pattern"
+[ValidatePattern('^[A-Z]$')]
+endsnippet
+
+snippet vpath "Validate Path"
+[ValidateScript({
+	if (Test-Path -Path $PSItem) { $true }
+	else { Throw "Path $PSItem not found." }
+})]
+endsnippet
+
+snippet vscript "Validate Script"
+[ValidateScript({
+	if (Test-Connection -ComputerName $PSItem -Quiet -Count 1) { $true }
+	else { Throw "Unable to connect to $PSItem." }
+})]
+endsnippet
+
