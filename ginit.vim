@@ -1,5 +1,5 @@
 " set font
-GuiFont! Meslo LG M DZ for Powerline:h10
+GuiFont! Ubuntu Mono derivative Powerline:h12
 
 " remove Gui tabs
 GuiTabline 0 
@@ -11,7 +11,7 @@ GuiPopupmenu 0
 GuiLinespace 1
 
 " start maximised
-call GuiWindowMaximized(1)
+"call GuiWindowMaximized(1)
 
 " enable 24 bit color
 set termguicolors

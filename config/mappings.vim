@@ -32,6 +32,8 @@ nnoremap <leader>egv :vsplit $MYVIMHOME\ginit.vim<cr>
 " Remap redo to something easier. C-r is hard to remember
 nnoremap U <C-r>
 
+" quit neo-vim and return to terminal
+nmap <leader>x :q<cr>
 
 " -------
 " Editor
@@ -57,10 +59,6 @@ nnoremap <leader>s :set invspell<cr>
 " search highlight
 nnoremap <leader><space> :nohlsearch<cr>
 
-" NerdTree
-nnoremap <silent> <C-k><C-b> :NERDTreeToggle<cr>
-nnoremap <F5> :NERDTreeToggle<cr>
-nnoremap <leader>kb :NERDTreeToggle<cr>
 
 " -------
 " Navigation
@@ -102,4 +100,15 @@ nmap <leader>n :enew<cr>
 
 " show all buffers
 nmap <leader>bl :ls<cr>
+
+
+" -------
+" Easy Align
+" -------
+
+" Start interactive EasyAlign in visual mode
+xmap ga <Plug>(EasyAlign)
+
+" STart interactive EasyAlign for a motion/text object 
+nmap ga <Plug>(EasyAlign)
 
